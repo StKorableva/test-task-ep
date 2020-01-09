@@ -1,37 +1,32 @@
 import getWeatherApi from "../../service/serviceAPI";
 
 export const setWeather = weather => ({
-  type: 'SET_WEATHER',
+  type: "SET_WEATHER",
   weather
-})
+});
 
-export const startLoading = () => ({
-  type: 'START_LOADING'
-})
-
-export const resetLoading = () => ({
-  type: 'RESET_LOADING'
-})
+export const startFetching = () => ({
+  type: "START_FETCHING"
+});
 
 export const setError = error => ({
-  type: 'SET_ERROR',
+  type: "SET_ERROR",
   error
-})
+});
 
 export const getWeather = city => {
-  return async dispatch => {
-    dispatch(startLoading());
+  return async (dispatch, getState) => {
+    const { isFetching } = getState();
+
+    if (isFetching) {
+      return;
+    }
+    dispatch(startFetching()); 
     try {
       const weather = await getWeatherApi(city);
-      if(weather.cod !== 200) {
-        throw new Error(weather.message)
-      }
-      dispatch(resetLoading());
       dispatch(setWeather(weather));
-    }
-    catch(error) {
-      dispatch(resetLoading());
+    } catch (error) {
       dispatch(setError(error.message));
     }
-  }
-}
+  };
+};

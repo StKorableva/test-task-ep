@@ -15,8 +15,8 @@ export default class WeatherView extends Component {
   }
 
   render() {
-	const { city, isLoading, weather} = this.props;
-    if (isLoading) {
+	const { city, isFetching, weather} = this.props;
+    if (isFetching) {
       return <Spinner />;
     } else {
       return (

@@ -9,7 +9,7 @@ const props = {
     weather: {
         temp: 280.5
     },
-    isLoading: false,
+    isFetching: false,
     city: 'saint petersburg'
 }
 
@@ -21,8 +21,8 @@ describe('<WeatherView />', () => {
 		expect(toJson(weatherview)).toMatchSnapshot();
     });
     
-    it('should render Spinner when data is loading', () => {
-        weatherview.setProps({isLoading: true});
+    it('should render Spinner when data is fetching', () => {
+        weatherview.setProps({isFetching: true});
         expect(toJson(weatherview)).toMatchSnapshot();
     })
 

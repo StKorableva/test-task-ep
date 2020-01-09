@@ -5,7 +5,7 @@ import selector from "../../selectors/weatherSelector";
 
 const mapStateToProps = state => ({
   weather: selector(state),
-  isLoading: state.isLoading,
+  isFetching: state.isFetching,
   error: state.error
 });
 

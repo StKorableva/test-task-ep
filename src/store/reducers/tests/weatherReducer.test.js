@@ -11,13 +11,13 @@ describe('weather reducer', () => {
         expect(weatherReducer({}, { type: 'SET_WEATHER', weather: {temp: 280.5}, error: ''})).toEqual(newState);
     });
 
-    it('reducer should START LOADING', () => {
-        const newState = { isLoading: true };
-		expect(weatherReducer({}, { type: 'START_LOADING', isLoading: true })).toEqual(newState);
+    it('reducer should START FETCHING', () => {
+        const newState = { isFetching: true };
+		expect(weatherReducer({}, { type: 'START_FETCHING', isFetching: true })).toEqual(newState);
     });
-    it('reducer should RESET LOADING', () => {
-        const newState = { isLoading: false };
-		expect(weatherReducer({}, { type: 'RESET_LOADING', isLoading: false })).toEqual(newState);
+    it('reducer should RESET FETCHING', () => {
+        const newState = { isFetching: false };
+		expect(weatherReducer({}, { type: 'RESET_FETCHING', isFetching: false })).toEqual(newState);
     });
     it('reducer should SET ERROR', () => {
         const newState = { error: 'error message' };

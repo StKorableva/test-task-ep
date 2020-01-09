@@ -1,5 +1,6 @@
 import { createSelector } from "reselect";
 
+// TODO: use tranform in component
 const weatherSelector = state => state.weather;
 
 const transformToC = (temp) => {

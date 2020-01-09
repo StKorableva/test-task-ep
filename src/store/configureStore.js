@@ -5,7 +5,7 @@ import { weatherReducer } from "./reducers/weatherReducer";
 export const configureStore = () => {
   const initialState = {
     weather: {},
-    isLoading: false,
+    isFetching: false,
     error: ''
   };
   const store = createStore(
