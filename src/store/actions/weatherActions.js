@@ -9,6 +9,10 @@ export const startFetching = () => ({
   type: "START_FETCHING"
 });
 
+export const resetFetching = () => ({
+  type: "RESET_FETCHING"
+});
+
 export const setError = error => ({
   type: "SET_ERROR",
   error
@@ -20,12 +24,15 @@ export const getWeather = city => {
 
     if (isFetching) {
       return;
-    }
+     }
+
     dispatch(startFetching()); 
     try {
       const weather = await getWeatherApi(city);
+      dispatch(resetFetching());
       dispatch(setWeather(weather));
     } catch (error) {
+      dispatch(resetFetching());
       dispatch(setError(error.message));
     }
   };

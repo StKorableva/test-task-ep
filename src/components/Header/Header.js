@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 import "./Header.scss";
-
+//TODO: refactor (to one view) & refactor component
 export default function Header() {
   return (
     <header className="header">
