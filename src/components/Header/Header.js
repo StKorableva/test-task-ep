@@ -1,30 +1,16 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-
 import "./Header.scss";
+import NavLinkComponent from "../NavLink/NavLink";
+
 //TODO: refactor (to one view) & refactor component
-export default function Header() {
+const Header = () => {
   return (
     <header className="header">
       <nav className="header__nav">
-        <ul className="header__nav-list">
-          <li className="header__nav-item">
-            <NavLink to="/saint-petersburg" isActive = {(match, location) => match || location.pathname === '/'} label={"Saint-Petersburg"} activeStyle={{color: 'red'}}>
-              Saint-Petersburg
-            </NavLink>
-          </li>
-          <li className="header__nav-item">
-            <NavLink to="/moscow" label={"Moscow"} activeStyle={{color: 'red'}}>
-              Moscow
-            </NavLink>
-          </li>
-          <li className="header__nav-item">
-            <NavLink to="/rostov-on-don" label={"Rostov-on-Don"} activeStyle={{color: 'red'}}>
-              Rostov-on-Don
-            </NavLink>
-          </li>
-        </ul>
+        <NavLinkComponent />
       </nav>
     </header>
   );
-}
+};
+
+export default Header;
