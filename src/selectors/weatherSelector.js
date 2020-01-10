@@ -3,10 +3,6 @@ import { createSelector } from "reselect";
 // TODO: use tranform in component
 const weatherSelector = state => state.weather;
 
-const transformToC = (temp) => {
-	return (temp - 273.15).toFixed(1);
-  }
-
 const selectWeather = weather => {
   if (!weather.name) {
     return {
@@ -16,7 +12,7 @@ const selectWeather = weather => {
   }
   return {
     city: weather.name,
-    temp: transformToC(weather.main.temp) + ' ℃'
+    temp: weather.main.temp
   };
 };
 
