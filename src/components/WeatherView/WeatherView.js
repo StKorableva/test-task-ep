@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Spinner from "../Spinner/Spinner";
 import "./WeatherView.scss";
 
-export default class WeatherView extends Component {
+class WeatherView extends Component {
   componentDidMount() {
     this.props.getWeather();
   }
@@ -33,3 +33,5 @@ export default class WeatherView extends Component {
     }
   }
 }
+
+export default WeatherView;
