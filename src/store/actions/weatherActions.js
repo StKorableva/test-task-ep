@@ -18,19 +18,25 @@ export const setError = error => ({
   error
 });
 
+const fetchWeather = weather => {
+  return dispatch => {
+    dispatch(resetFetching());
+    dispatch(setWeather(weather));
+  }
+};
+
 export const getWeather = city => {
   return async (dispatch, getState) => {
     const { isFetching } = getState();
 
     if (isFetching) {
       return;
-     }
+    }
 
-    dispatch(startFetching()); 
+    dispatch(startFetching());
     try {
       const weather = await getWeatherApi(city);
-      dispatch(resetFetching());
-      dispatch(setWeather(weather));
+      dispatch(fetchWeather(weather));
     } catch (error) {
       dispatch(resetFetching());
       dispatch(setError(error.message));
