@@ -2,20 +2,14 @@ a {
   text-decoration: none;
 }
 
-.header__nav {
-  padding-bottom: 50px;
-
-  &-list {
-    align-items: center;
-    display: flex;
-    height: 6vh;
-    justify-content: center;
-    list-style: none;
-    margin-left: -25px;
-    position: fixed;
-    width: 100%;
-    z-index: 1;
-  }
+.header {
+  align-items: center;
+  display: flex;
+  height: 6vh;
+  justify-content: center;
+  list-style: none;
+  width: 100%;
+  z-index: 1;
 
   &-item {
     color: #000;
